@@ -340,7 +340,8 @@ a:hover {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #f2f2f2;
+  border: 6px solid #23395B;
+  border-top: 6px solid #f5f5f5;
   border-radius: 50%;
   width: 60px;
   height: 60px;
