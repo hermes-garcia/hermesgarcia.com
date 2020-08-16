@@ -1,0 +1,17 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home3/hermesgarcia/public_html/
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp page-400.html $DEPLOYPATH
+    - /bin/cp page-403.html $DEPLOYPATH
+    - /bin/cp page-404.html $DEPLOYPATH
+    - /bin/cp page-500.html $DEPLOYPATH
+    - /bin/cp page-503.html $DEPLOYPATH
+    - /bin/cp sitemap_index.xml $DEPLOYPATH
+    - /bin/cp -R /home3/hermesgarcia/repositories/blog $DEPLOYPATH
+    - /bin/cp -R /home3/hermesgarcia/repositories/contactform $DEPLOYPATH
+    - /bin/cp -R /home3/hermesgarcia/repositories/css $DEPLOYPATH
+    - /bin/cp -R /home3/hermesgarcia/repositories/img $DEPLOYPATH
+    - /bin/cp -R /home3/hermesgarcia/repositories/js $DEPLOYPATH
+    - /bin/cp -R /home3/hermesgarcia/repositories/lib $DEPLOYPATH
