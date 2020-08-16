@@ -212,6 +212,11 @@ a:hover {
   box-shadow: 0 0 0 3px #8EA8C3;
   transition: all 500ms ease;
 }
+@media (max-width: 767px) {
+  .socials {
+    text-align: center;
+  }
+}
 
 /*------/ Ul resect /------*/
 .ul-resect, .widget-tags ul, .widget-sidebar .list-sidebar, .box-comments .list-comments, .blog-wrapper .post-meta ul, .list-ico, .socials ul {
@@ -604,11 +609,38 @@ a:hover {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
-.about-mf .about-img {
-  margin-bottom: 2rem;
+@media (max-width: 767px) {
+  .about-mf .box-shadow-full {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
-.about-mf .about-img img {
-  margin-left: 10px;
+@media (min-width: 992px) {
+  .about-mf .about-img {
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .about-mf .about-img {
+    max-width: 50%;
+    margin-left: 25%;
+  }
+}
+@media (min-width: 992px) {
+  .about-mf .about-info {
+    padding-top: 15%;
+  }
+}
+@media (max-width: 991px) {
+  .about-mf .about-info {
+    padding-top: 5%;
+    text-align: center;
+  }
+}
+@media (max-width: 772px) {
+  .about-mf .about-info {
+    padding-top: 0;
+  }
 }
 @media (min-width: 767px) {
   .about-mf .box-pl2 {
@@ -620,6 +652,18 @@ a:hover {
 .skill-mf span {
   color: #4e4e4e;
 }
+.skill-mf .skill-img {
+  margin-top: 10%;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .skill-mf .skill-img {
+    margin-top: 5%;
+  }
+}
+.skill-mf .skill-img img {
+  max-width: 100%;
+}
 .skill-mf .progress {
   background-color: #8EA8C3;
   margin: 0.5rem 0 1.2rem 0;
@@ -629,6 +673,22 @@ a:hover {
 .skill-mf .progress .progress-bar {
   height: 0.7rem;
   background-color: #23395B;
+}
+@media (max-width: 991px) {
+  .skill-mf .title-s {
+    text-align: center;
+  }
+}
+@media (max-width: 991px) {
+  .skill-mf {
+    padding-top: 15%;
+  }
+}
+@media (max-width: 767px) {
+  .skill-mf {
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
 }
 
 /*======================================
@@ -649,6 +709,21 @@ a:hover {
 .service-box .service-ico {
   margin-bottom: 1rem;
   color: #1e1e1e;
+}
+@media (min-width: 992px) {
+  .service-box .service-content {
+    min-height: 220px;
+  }
+}
+@media (min-width: 768px) {
+  .service-box .service-content {
+    min-height: 200px;
+  }
+}
+@media (min-width: 576px) {
+  .service-box .service-content {
+    min-height: 265px;
+  }
 }
 .service-box .ico-circle {
   transition: all 500ms ease;
@@ -703,6 +778,16 @@ a:hover {
 .work-box:hover img {
   transform: scale(1.3);
 }
+@media (min-width: 768px) {
+  .work-box {
+    min-height: 320px;
+  }
+}
+@media (max-width: 767px) {
+  .work-box {
+    min-height: 300px;
+  }
+}
 
 .work-img {
   display: block;
@@ -736,6 +821,12 @@ a:hover {
 
 .w-title {
   font-size: 1.2rem;
+}
+
+@media (max-width: 767px) {
+  .portfolio-mf {
+    padding-top: 0;
+  }
 }
 
 /*======================================
@@ -992,6 +1083,11 @@ a:hover {
     padding-left: 0;
   }
 }
+@media (max-width: 767px) {
+  .contact-mf .contact-me {
+    padding-top: 5%;
+  }
+}
 
 /*======================================
 //--//-->   FOOTER
@@ -1047,6 +1143,46 @@ footer .credits a {
 }
 
 /*======================================
+//--//-->   LOADING
+======================================*/
+.contactForm .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 5%;
+  margin-top: -10%;
+}
+
+.contactForm .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #8EA8C3;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+@-webkit-keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*======================================
 //--//-->   BUTTON
 ======================================*/
 .button {
@@ -1083,6 +1219,10 @@ footer .credits a {
 
 .button-rouded {
   border-radius: 5rem;
+}
+
+.button-send {
+  padding: 2% 9% 2% 10%;
 }
 
 .btn-lg {

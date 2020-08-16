@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
-    var nav = $('nav');
-    var navHeight = nav.outerHeight();
+    let nav = $('nav');
+    let navHeight = nav.outerHeight();
 
     $('.navbar-toggler').on('click', function() {
         if( ! $('#mainNav').hasClass('navbar-reduce')) {
@@ -9,7 +9,6 @@
         }
     })
 
-    // Preloader
     $(window).on('load', function () {
         if ($('#preloader').length) {
             $('#preloader').delay(100).fadeOut('slow', function () {
@@ -22,7 +21,6 @@
         }
     });
 
-    // Back to top button
     $(window).scroll(function() {
         if ($(this).scrollTop() > 100) {
             $('.back-to-top').fadeIn('slow');
@@ -72,7 +70,6 @@
         target: '#mainNav',
         offset: navHeight
     });
-    /*--/ End Scrolling nav /--*/
 
     /*--/ Navbar Menu Reduce /--*/
     $(window).trigger('scroll');
@@ -93,10 +90,9 @@
         }
     });
 
-    /*--/ Star Typed /--*/
     if ($('.text-slider').length == 1) {
-        var typed_strings = $('.text-slider-items').text();
-        var typed = new Typed('.text-slider', {
+        let typed_strings = $('.text-slider-items').text();
+        let typed = new Typed('.text-slider', {
             strings: typed_strings.split(','),
             typeSpeed: 80,
             loop: true,
@@ -104,18 +100,5 @@
             backSpeed: 30
         });
     }
-
-    /*--/ Testimonials owl /--*/
-    $('#testimonial-mf').owlCarousel({
-        margin: 20,
-        autoplay: true,
-        autoplayTimeout: 4000,
-        autoplayHoverPause: true,
-        responsive: {
-            0: {
-                items: 1,
-            }
-        }
-    });
 
 })(jQuery);

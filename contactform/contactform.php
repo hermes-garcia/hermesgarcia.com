@@ -1,80 +1,84 @@
 <?php
 /*
-  PHP contact form script
-  Version: 1.1
-  Copyrights BootstrapMade.com
+	PHP contact form script
+	Version: 1.0
+	Hermes Garcia
+	info@hermesgarcia.com
 */
-
 /***************** Configuration *****************/
+$contactEmailTo = 'info@hermesgarcia.com';
+$contactEmailFrom = 'contacto@hermesgarcia.com';
+$ccEmail = 'hermes@hermesgarcia.com';
+$bccEmail = 'hgarciamanzanarez@gmail.com';
+$subjectTitle = 'Mensaje desde hermesgarcia.com';
+$nameTitle = 'Nombre:';
+$emailTitle = 'Email:';
+$messageTitle = 'Mensaje:';
 
-  // Replace with your real receiving email address
-  $contact_email_to = "contact@example.com";
+$contactErrorName = 'El nombre es muy corto o muy largo';
+$contactErrorEmail = 'Por favor ingresa un email válido';
+$contactErrorSubject = 'El asunto es muy corto o muy largo';
+$contactErrorMessage = 'Tu mensaje es muy corto, escribe un poco más para nosotros';
 
-  // Title prefixes
-  $subject_title = "Contat Form Message:";
-  $name_title = "Name:";
-  $email_title = "Email:";
-  $message_title = "Message:";
+/********** Send Script ***********/
+$tz = 'America/Mexico_City';
+$timestamp = time();
+$dt = new DateTime("now", new DateTimeZone($tz));
+$dt->setTimestamp($timestamp);
+$date = $dt->format('Y-m-d H:i:s');
 
-  // Error messages
-  $contact_error_name = "Name is too short or empty!";
-  $contact_error_email = "Please enter a valid email!";
-  $contact_error_subject = "Subject is too short or empty!";
-  $contact_error_message = "Too short message! Please enter something.";
+if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
+	die('Lo sentimos, la petición debe ser tipo Ajax POST');
+}
 
-/********** Do not edit from the below line ***********/
+if(isset($_POST)) {
 
-  if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
-    die('Sorry Request must be Ajax POST');
-  }
+	$name = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
+	$email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+	$subject = filter_var($_POST["subject"], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+	$message = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
 
-  if(isset($_POST)) {
+	if(!$contactEmailTo || $contactEmailTo == 'contact@example.com') {
+		die('El email de recepción para el formulario de contacto no ha sudo configurado');
+	}
 
-    $name = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-    $subject = filter_var($_POST["subject"], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
-    $message = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
+	if(strlen($name)<3 || strlen($name)>50){
+		die($contactErrorName);
+	}
 
-    if(!$contact_email_to || $contact_email_to == 'contact@example.com') {
-      die('The contact form receiving email address is not configured!');
-    }
+	if(!$email){
+		die($contactErrorEmail);
+	}
 
-    if(strlen($name)<3){
-      die($contact_error_name);
-    }
+	if(strlen($subject)<3 || strlen($subject)>50){
+		die($contactErrorSubject);
+	}
 
-    if(!$email){
-      die($contact_error_email);
-    }
+	if(strlen($message)<3 || strlen($message)>256){
+		die($contactErrorMessage);
+	}
 
-    if(strlen($subject)<3){
-      die($contact_error_subject);
-    }
+	if(!isset($contactEmailFrom)) {
+		$contactEmailFrom = 'contacto@' . @preg_replace('/^www\./','', $_SERVER['SERVER_NAME']);
+	}
 
-    if(strlen($message)<3){
-      die($contact_error_message);
-    }
+	$headers = 'From: ' . $name . ' <' . $contactEmailFrom . '>' . PHP_EOL;
+	$headers .= 'Reply-To: ' . $email . PHP_EOL;
+	$headers .= 'Cc: ' . $ccEmail  . PHP_EOL;
+	$headers .= 'Bcc: ' . $bccEmail . PHP_EOL;
+	$headers .= 'MIME-Version: 1.0' . PHP_EOL;
+	$headers .= 'Content-Type: text/html; charset=UTF-8' . PHP_EOL;
+	$headers .= 'X-Mailer: PHP/' . phpversion();
 
-    if(!isset($contact_email_from)) {
-      $contact_email_from = "contactform@" . @preg_replace('/^www\./','', $_SERVER['SERVER_NAME']);
-    }
+	$message_content = '<strong>' . $nameTitle . '</strong> ' . $name . '<br>';
+	$message_content .= '<strong>' . $emailTitle . '</strong> ' . $email . '<br>';
+	$message_content .= '<strong>' . $messageTitle . '</strong> ' . nl2br($message);
 
-    $headers = 'From: ' . $name . ' <' . $contact_email_from . '>' . PHP_EOL;
-    $headers .= 'Reply-To: ' . $email . PHP_EOL;
-    $headers .= 'MIME-Version: 1.0' . PHP_EOL;
-    $headers .= 'Content-Type: text/html; charset=UTF-8' . PHP_EOL;
-    $headers .= 'X-Mailer: PHP/' . phpversion();
+	$sendemail = mail($contactEmailTo, $subjectTitle . ' ' . $subject, $message_content, $headers);
 
-    $message_content = '<strong>' . $name_title . '</strong> ' . $name . '<br>';
-    $message_content .= '<strong>' . $email_title . '</strong> ' . $email . '<br>';
-    $message_content .= '<strong>' . $message_title . '</strong> ' . nl2br($message);
-
-    $sendemail = mail($contact_email_to, $subject_title . ' ' . $subject, $message_content, $headers);
-
-    if( $sendemail ) {
-      echo 'OK';
-    } else {
-      echo 'Could not send mail! Please check your PHP mail configuration.';
-    }
-  }
-?>
+	if( $sendemail ) {
+        echo "OK";
+	} else {
+        echo 'El email no pudo ser enviado, intentálo de nuevo.';
+	}
+}
