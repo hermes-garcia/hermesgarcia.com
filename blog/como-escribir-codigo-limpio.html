@@ -107,11 +107,11 @@
                                 Esto, como ya debes saberlo, es muy común encontrarlo en cualquier proyecto.
                             </p>
                             <p class="text-justify">
-                                Por lo anterior, Robert C. Martin  escribió un manual de estilo para el desarrollo ágil de software
+                                Por lo anterior, <span class="font-italic">Robert C. Martin</span>  escribió un manual de estilo para el desarrollo ágil de software
                                 llamado <span class="font-weight-bold font-italic">Código limpio</span>.
                                 <br>A continuación te presento un resumen de este manual, pero antes cabe mencionar que estos son
-                                consejos y no pretenden ser una estructura rígida o inflexible. Siempre es mejor adaptarse a las
-                                mejores prácticas que funcionen mejor con tu forma de desarrollar y los estándares definidos en tu
+                                consejos y no pretenden ser una estructura rígida o inflexible. Siempre es más práctico adaptarse a las
+                                prácticas que funcionen mejor con tu forma de desarrollar y con los estándares definidos en tu
                                 equipo de trabajo. Sin embargo, hay que considerar que estos consejos son usados por la gran mayoría
                                 de equipos de desarrollo del mundo.
                             </p>
@@ -159,13 +159,13 @@
                             </div>
                             <h2>Variables de una sola letra</h2>
                             <p class="text-justify">
-                                Ya mencionamos que no se deben usar variables de una sola letra. Pero como toda regla,
+                                Ya mencioné que no se deben usar variables de una sola letra. Pero como toda regla,
                                 existen sus excepciones:
                             </p>
                             <pre><code>for ($i = 0; $i < 10; $i++) {</code></pre>
                             <p class="text-justify">
                                 <span class="font-italic">¿Por qué es muy común usar una letra como nombre de variable en el ejemplo anterior?</span>
-                                <br>El contexto en esta porción de código nos permite entender que la variable `$i` está actuando como un índice.
+                                <br>El contexto en esta porción de código nos permite entender que la variable <code>$i</code> está actuando como un índice.
                                 <br>Incluso podemos tener variables de una sola letra en funciones o métodos que son muy cortos:
                             </p>
                             <code><pre>public function sayHello($n = null) {<br>  return "Hello " . $n;<br>}</pre></code>
@@ -191,7 +191,7 @@
                             <p class="text-justify">
                                 <span class="font-weight-bold">¿Por qué?</span>
                                 <br>
-                                Porque `src`, `img` y otras abreviaciones son ampliamente utilizadas, incluso aceptadas como parte de la
+                                Porque <code>src</code>, <code>img</code> y otras abreviaciones son ampliamente utilizadas, incluso aceptadas como parte de la
                                 sintaxis de algunos lenguajes.
                                 <br>Ejemplo:
                             </p>
@@ -208,18 +208,18 @@
                             </p>
                             <code><pre>for ($i=1; $i < count($numbers); $i++) {<br>    for ($j=0; $j < count($numbers)-1; $j++) {<br>        if ($numbers[$i] > $numbers[$j]) {<br>            $numbers[$i] = $numbers[$j];<br>                $numbers[$j] = $numbers[$i];<br>            }<br>        }<br>    }<br>}</pre></code>
                             <p class="text-justify">
-                                En el código anterior, la función burbleSort tiene demasiadas tareas que cumplir,
+                                En el código anterior, la función <code>burbleSort</code> tiene demasiadas tareas que cumplir,
                                 vamos a dividir las responsabilidades:
                             </p>
                             <code><pre>public function burbleSort($numbers = array()) {<br>    for ($i=1; $i < count($numbers); $i++) {<br>        exchange($numbers, $i);<br>    }<br>}
                                 <br>public function exchange($numbers = array(), $i = 0) {<br>    for ($j=0; $j < count($numbers)-1; $j++) {<br>        if ($numbers[$i] > $numbers[$j]) {<br>            $numbers[$i] = $numbers[$j];<br>            $numbers[$j] = $numbers[$i];<br>        }<br>    }<br>}</pre></code>
                             <p class="text-justify">
                                 Mucho mejor, ahora la función delegó el intercambio de posiciones a otra función. Incluso podríamos
-                                dividirla aún más para que cumplir con esta práctica de una mejor manera.
+                                dividirla aún más para que cumpla con esta práctica de una mejor manera.
                             </p>
                             <h2>Funciones sin efectos secundarios</h2>
                             <p class="text-justify">
-                                Ya lo hemos mencionado antes, pero lo repetimos: <span class="font-italic font-weight-bold">Las funciones deben hacer una sola cosa y la deben hacer bien</span>.
+                                Ya lo he mencionado antes, pero lo repito: <span class="font-italic font-weight-bold">Las funciones deben hacer una sola cosa y la deben hacer bien</span>.
                             </p>
                             <code><pre>// BAD <br>public function isValidPayment($payment, $coursePrice) {<br>    if ($payment == $coursePrice) {<br>        createInvoice();<br>        return true;<br>    }<br>    return false;<br>}
                                 <br>// GOOD <br>public function isValidPayment($payment, $coursePrice) {<br>    return $payment == $coursePrice;<br>}</pre></code>
@@ -232,7 +232,7 @@
                             <p class="text-justify">
                                 Cuando escribas código, debes pensar en que al leerlo tienes que poder hacerlo como si estuvieras
                                 leyendo un libro, con un orden. Sabiendo que cada función, como cada capítulo en un libro,
-                                está enfocado a lograr un objetivo pequeño y al leer todo el libro habrás entendido
+                                está enfocado en lograr un pequeño objetivo y al leer todo el libro habrás entendido
                                 el objetivo general.
                             </p>
                             <h2>Buenos comentarios</h2>
@@ -290,11 +290,11 @@
                             </p>
                             <h2>Conclusión</h2>
                             <p class="text-justify">
-                                Existen muchas buenas prácticas para mejorar tu rendimiento como desarrollador, entre ellas
-                                es usar un código limpio en tus proyectos para que puedas leerlo fácilmente y para que otros
+                                Existen muchas buenas prácticas para mejorar tu rendimiento como desarrollador, una de ellas
+                                es usar código limpio en tus proyectos para que puedas leerlo fácilmente y para que otros
                                 también lo puedan leer y entender. El aprender a escribir código con las mejores prácticas es
-                                el plus que le otorga a un desarrollador ser un buen desarrollador, ya que, no sólo el beneficio
-                                es para ti, sino que son prácticas que todo un equipo agradecerá.
+                                el plus que le otorga a un desarrollador ser un <span class="font-weight-bold">buen desarrollador</span>,
+                                ya que, no sólo el beneficio es para ti, sino que son prácticas que todo un equipo agradecerá.
                             </p>
                             <!--<blockquote class="blockquote">
                                 <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
