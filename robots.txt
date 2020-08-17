@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: js/
+Disallow: lib/
+Disallow: contactform/
+Allow: blog/
+Sitemap: https://hermesgarcia.com/sitemap.xml

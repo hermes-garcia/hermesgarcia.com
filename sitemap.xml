@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>https://hermesgarcia.com/</loc>
+        <lastmod>2020-08-16T20:00:00+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://blog.hermesgarcia.com/</loc>
+        <lastmod>2020-08-16T21:00:00+00:00</lastmod>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://blog.hermesgarcia.com/como-escribir-codigo-limpio</loc>
+        <lastmod>2020-08-16T22:00:00+00:00</lastmod>
+        <priority>1</priority>
+    </url>
+</urlset>
