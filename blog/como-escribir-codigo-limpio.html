@@ -80,7 +80,6 @@
                         <div class="post-meta">
                             <header>
                                 <h1 class="article-title">¿Cómo escribir código limpio?</h1>
-                                <address class="author">By <a rel="author" class="url fn n" href="/author/john-doe">John Doe</a></address>
                                 <ul>
                                     <li>
                                         <span class="ion-ios-person"></span>
@@ -109,9 +108,8 @@
                             </p>
                             <p class="text-justify">
                                 Por lo anterior, Robert C. Martin  escribió un manual de estilo para el desarrollo ágil de software
-                                llamado <span class="font-weight-bold font-italic">Código limpio</span>. <br>
-
-                                A continuación te presento un resumen de este manual, pero antes cabe mencionar que estos son
+                                llamado <span class="font-weight-bold font-italic">Código limpio</span>.
+                                <br>A continuación te presento un resumen de este manual, pero antes cabe mencionar que estos son
                                 consejos y no pretenden ser una estructura rígida o inflexible. Siempre es mejor adaptarse a las
                                 mejores prácticas que funcionen mejor con tu forma de desarrollar y los estándares definidos en tu
                                 equipo de trabajo. Sin embargo, hay que considerar que estos consejos son usados por la gran mayoría
@@ -123,15 +121,13 @@
                                 tu variable debes poder entender por qué existe, qué hace y cómo se usa.
                                 <br>Mira este fragmento de código:
                             </p>
-                                <pre><code>$p = 5; //Pago en doláres</code></pre>
-                            <br>
+                            <pre><code>$p = 5; //Pago en doláres</code></pre>
                             <p class="text-justify">
                                 La variable anterior nombrada <code>$p</code> no está informando nada acerca de lo que hace y, aunque tiene
                                 un comentario, tendríamos que estar haciendo scroll para recordar de qué trata.
                                 <br>Mejor usa un nombre como el siguiente:
                             </p>
-                                <pre><code>$paymentInUSD = 5;</code></pre>
-                            <br>
+                            <pre><code>$paymentInUSD = 5;</code></pre>
                             <p class="text-justify">
                                 Así, quién lea tu código, tendrá claro qué hace esta variable: <span class="font-italic font-weight-bold">Almacena el valor de pago en dólares</span>,
                                 y no tendrá que recurrir a buscar el comentario.
@@ -151,207 +147,153 @@
                                 la industria. Ahora, los nombres deben poderse pronunciar.
                                 <br>Aquí un claro ejemplo:
                             </p>
-                                <pre><code>$genymdhms = date('Y-m-d h:i:s');</code></pre>
-                            <br>gi
+                            <pre><code>$genymdhms = date('Y-m-d h:i:s');</code></pre>
                             <p class="text-justify">
-                                La variable anterior no se puede mencionar en ningún idioma. Son siglas que se volverán un dolor de
+                                La variable anterior no se puede mencionar en ningún idioma, son siglas que se volverán un dolor de
                                 cabeza al querer recordarlas o pronunciarlas.
-                                Así que, sabiendo el objetivo de la variable (en este caso es la fecha de un proceso), podemos cambiarla a:
-                                `$generationTimestamp = date('Y-m-d h:i:s');`
-                                ***
-                                ###Variables de una sola letra
+                                <br>Así que, sabiendo el objetivo de la variable (en este caso es la fecha de un proceso), podemos cambiarla a:
+                            </p>
+                            <pre><code>$generationTimestamp = date('Y-m-d h:i:s');</code></pre>
+                            <h2>Variables de una sola letra</h2>
+                            <p class="text-justify">
                                 Ya mencionamos que no se deben usar variables de una sola letra. Pero como toda regla,
                                 existen sus excepciones:
-                                `for ($i = 0; $i < 10; $i++) {`
-
-                                ___¿Por qué es muy común usar una letra como nombre de variable en el ejemplo anterior?___
-                                El contexto en esta porción de código nos permite entender que la variable `$i` está actuando como un índice.
-                                Incluso podemos tener variables de una sola letra en funciones o métodos que son muy cortos:
-                                ```
-                                public function sayHello($n = null) {
-                                return "Hello " . $n;
-                                }
-                                ```
-                                En este ejemplo, `$n` indica el nombre de la persona a la que se va a saludar. Esta función es fácil
+                            </p>
+                            <pre><code>for ($i = 0; $i < 10; $i++) {</code></pre>
+                            <p class="text-justify">
+                                <span class="font-italic">¿Por qué es muy común usar una letra como nombre de variable en el ejemplo anterior?</span>
+                                <br>El contexto en esta porción de código nos permite entender que la variable `$i` está actuando como un índice.
+                                <br>Incluso podemos tener variables de una sola letra en funciones o métodos que son muy cortos:
+                            </p>
+                            <code><pre>public function sayHello($n = null) {<br>  return "Hello " . $n;<br>}</pre></code>
+                            <p class="text-justify">
+                                En este ejemplo, <code>$n</code> indica el nombre de la persona a la que se va a saludar. Esta función es fácil
                                 de entender y no hay que preocuparse con el uso de la variable en otro contexto. Sin embargo,
                                 si la función comienza a crecer, será cada vez más difícil entender con sólo leerla a qué se refiere
                                 esta variable.
-                                Una mejor forma de escribir la función anterior es la siguiente:
-                                ```
-                                public function sayHello($name = null) {
-                                return "Hello " . $name;
-                                }
-                                ```
-                                Las buenas prácticas indican que la segunda función es la que está mejor escrita. ¿Cuál prefieres tú?
-                                ***
-                                ###Uso de abreviaciones
+                                <br>Una mejor forma de escribir la función anterior es la siguiente:
+                            </p>
+                            <code><pre>public function sayHello($name = null) {<br>  return "Hello " . $name;<br>}</pre></code>
+                            <p class="text-justify">
+                                Las buenas prácticas indican que la segunda función es la que está mejor escrita.
+                                <br><span class="font-weight-bold">¿Cuál prefieres tú?</span>
+                            </p>
+                            <h2>Uso de abreviaciones</h2>
+                            <p class="text-justify">
                                 Entre las buenas prácticas, cómo ya lo mencionamos, no se recomienda usar abreviaciones.
                                 Sin embargo, existen algunas abreviaciones que son tan comunes que tienen total sentido.
-                                Por ejemplo: `source` podríamos cambiarlo por
-                                `src`, `image` por `img`, entre otros.
-
-                                ___¿Por qué?___
+                                Por ejemplo: <code>source</code> podríamos cambiarlo por
+                                <code>src</code>, <code>image</code> por <code>img</code>, entre otros.
+                            </p>
+                            <p class="text-justify">
+                                <span class="font-weight-bold">¿Por qué?</span>
+                                <br>
                                 Porque `src`, `img` y otras abreviaciones son ampliamente utilizadas, incluso aceptadas como parte de la
                                 sintaxis de algunos lenguajes.
-
-                                Ejemplo:
-                                `<img src="path" alt="Ejemplo de abreviaciones">`
-
+                                <br>Ejemplo:
+                            </p>
+                            <pre><code> img src="path" alt="Ejemplo de abreviaciones"</code></pre>
+                            <p class="text-justify">
                                 Los desarrolladores estamos ya familiarizados con estas abreviaciones y son muy fáciles de entender.
-                                ***
-                                ###Las funciones deben hacer una sola cosa
+                            </p>
+                            <h2>Las funciones deben hacer una sola cosa</h2>
+                            <p class="text-justify">
                                 Es normal que, mientras escribimos código, vamos desarrollando todo lo que tiene que hacer nuestro
                                 software. Pero en ocasiones las funciones (o métodos) se vuelven gigantes. Cuando lo lees, vas
                                 revisando que hay cosas que deberían estar en otras funciones (o métodos) más pequeños que serán
-                                llamados por tu función principal, en estos casos podrás utilizar el concepto de ___Single Responsability___.
-
-                                ```
-                                for ($i=1; $i < count($numbers); $i++) {
-                                for ($j=0; $j < count($numbers)-1; $j++) {
-                                if ($numbers[$i] > $numbers[$j]) {
-                                $numbers[$i] = $numbers[$j];
-                                $numbers[$j] = $numbers[$i];
-                                }
-                                }
-                                }
-                                }
-                                ```
+                                llamados por tu función principal, en estos casos podrás utilizar el concepto de <span class="font-italic font-weight-bold">Single Responsability</span>.
+                            </p>
+                            <code><pre>for ($i=1; $i < count($numbers); $i++) {<br>    for ($j=0; $j < count($numbers)-1; $j++) {<br>        if ($numbers[$i] > $numbers[$j]) {<br>            $numbers[$i] = $numbers[$j];<br>                $numbers[$j] = $numbers[$i];<br>            }<br>        }<br>    }<br>}</pre></code>
+                            <p class="text-justify">
                                 En el código anterior, la función burbleSort tiene demasiadas tareas que cumplir,
                                 vamos a dividir las responsabilidades:
-                                ```
-                                public function burbleSort($numbers = array()) {
-                                for ($i=1; $i < count($numbers); $i++) {
-                                exchange($numbers, $i);
-                                }
-                                }
-
-                                public function exchange($numbers = array(), $i = 0) {
-                                for ($j=0; $j < count($numbers)-1; $j++) {
-                                if ($numbers[$i] > $numbers[$j]) {
-                                $numbers[$i] = $numbers[$j];
-                                $numbers[$j] = $numbers[$i];
-                                }
-                                }
-                                }
-                                ```
+                            </p>
+                            <code><pre>public function burbleSort($numbers = array()) {<br>    for ($i=1; $i < count($numbers); $i++) {<br>        exchange($numbers, $i);<br>    }<br>}
+                                <br>public function exchange($numbers = array(), $i = 0) {<br>    for ($j=0; $j < count($numbers)-1; $j++) {<br>        if ($numbers[$i] > $numbers[$j]) {<br>            $numbers[$i] = $numbers[$j];<br>            $numbers[$j] = $numbers[$i];<br>        }<br>    }<br>}</pre></code>
+                            <p class="text-justify">
                                 Mucho mejor, ahora la función delegó el intercambio de posiciones a otra función. Incluso podríamos
                                 dividirla aún más para que cumplir con esta práctica de una mejor manera.
-                                ***
-                                ###Funciones sin efectos secundarios
-                                Ya lo hemos mencionado antes, pero lo repetimos: ___Las funciones deben hacer una sola cosa y la deben hacer bien.___
-                                ```
-                                // BAD
-                                public function isValidPayment($payment, $coursePrice) {
-                                if ($payment == $coursePrice) {
-                                createInvoice();
-                                return true;
-                                }
-                                return false;
-                                }
-
-                                // GOOD
-                                public function isValidPayment($payment, $coursePrice) {
-                                return $payment == $coursePrice;
-                                }
-                                ```
+                            </p>
+                            <h2>Funciones sin efectos secundarios</h2>
+                            <p class="text-justify">
+                                Ya lo hemos mencionado antes, pero lo repetimos: <span class="font-italic font-weight-bold">Las funciones deben hacer una sola cosa y la deben hacer bien</span>.
+                            </p>
+                            <code><pre>// BAD <br>public function isValidPayment($payment, $coursePrice) {<br>    if ($payment == $coursePrice) {<br>        createInvoice();<br>        return true;<br>    }<br>    return false;<br>}
+                                <br>// GOOD <br>public function isValidPayment($payment, $coursePrice) {<br>    return $payment == $coursePrice;<br>}</pre></code>
+                            <p class="text-justify">
                                 Observa cómo la primera función no está adoptando buenas prácticas porque, además de validar
                                 si el pago del curso es correcto, crea una nueva factura de compra.
-                                Hay que quitarle esa responsabilidad y la función solo debe validar si el pago es correcto.
-                                ***
-                                ###Código como un libro
+                                <br>Hay que quitarle esa responsabilidad y la función solo debe validar si el pago es correcto.
+                            </p>
+                            <h2>Código como un libro</h2>
+                            <p class="text-justify">
                                 Cuando escribas código, debes pensar en que al leerlo tienes que poder hacerlo como si estuvieras
                                 leyendo un libro, con un orden. Sabiendo que cada función, como cada capítulo en un libro,
                                 está enfocado a lograr un objetivo pequeño y al leer todo el libro habrás entendido
                                 el objetivo general.
-                                ***
-                                ###Buenos comentarios
+                            </p>
+                            <h2>Buenos comentarios</h2>
+                            <p class="text-justify">
                                 Muchas veces, dentro de las buenas prácticas, el uso de los comentarios se han malinterpretado.
                                 El documento sugiere que no uses comentarios. Pero, muchos reviews que existen del manual han sido
                                 extremistas al decir que jamás se deben usar.
-                                Esto no es cierto, lo que dice el documento es que
+                                <br>Esto no es cierto, lo que dice el documento es que
                                 los comentarios se deben usar siempre y cuando agreguen valor al código.
-
-                                __Ejemplo de comentarios inútiles:__
-                                ```$dayOfMonth = 1; // día del mes```
-                                ```function validateUser($user){ // Valida el usuario```
-                                ```return $value; // retorna el valor```
-                                ```// Cambio de código hecho por Fulano de tal el 08/08/2008```
-
-                                En los ejemplos anteriores podemos observar cómo el comentario describe lo que ya hace el código,
+                            </p>
+                            <p class="text-justify">
+                                <span class="font-weight-bold">Ejemplos de comentarios inútiles:</span>
+                            </p>
+                            <pre><code>$dayOfMonth = 1; // día del mes</code></pre>
+                            <pre><code>function validateUser($user){ // Valida el usuario</code></pre>
+                            <pre><code>return $value; // retorna el valor</code></pre>
+                            <pre><code>// Cambio de código hecho por Fulano de tal el 08/08/2008</code></pre>
+                            <p class="text-justify">
+                                En los ejemplos anteriores podemos observar cómo el comentario describe lo que ya hace el código
                                 lo que, si nombraste tus variables con buenas prácticas, es totalmente innecesario.
                                 Incluso los comentarios que indican cambios o fechas de cambio y autor son inútiles si, siguiendo
-                                las buenas prácticas, en tu proyecto tienes el versionado del código. Lo repetimos, este tipo de
-                                comentarios son totalmente inútiles y entorpecen la lectura, corrección de bugs y entendimiento del código.
-
-                                __Ejemplo de comentarios útiles:__
-                                ```
-                                /* calculateOneByOne calcula los registros de manera individual.
-                                Debe usarse con cuidado ya que el rendimiento de esta función
-                                puede afectar seriamente el proceso de facturación del mes */
-                                function calculateOneByOne() {
-                                ```
-
+                                las buenas prácticas, en tu proyecto usas una herramienta de versionado de código <span class="font-italic font-weight-light">(aka git)</span>.
+                                <br>Lo repito, este tipo de comentarios son totalmente inútiles y entorpecen la lectura, corrección de bugs y entendimiento del código.
+                            </p>
+                            <p class="text-justify">
+                                <span class="font-weight-bold">Ejemplos de comentarios útiles:</span>
+                            </p>
+                                <code><pre>/* calculateOneByOne calcula los registros de manera individual. <br>Debe usarse con cuidado ya que el rendimiento de esta función <br>puede afectar seriamente el proceso de facturación del mes */
+                                    <br>function calculateOneByOne() {</pre></code>
+                            <p class="text-justify">
                                 El comentario anterior es útil porque le informa al desarrollador que hay que utilizarlo
                                 con cuidado ya que tiene un proceso que consume muchos recursos.
                                 Lo importante es que si se decide realizar un comentario, es porque es útil debido a que
                                 expresa de una mejor manera lo que el código no puede expresar.
-                                ***
-                                ###Testing
-                                ¿No haces test de tu código? Entonces lo estás haciendo mal.
-                                Hay muchas razones para hacer testing de tu código: ___Refactorización, mejora de rendimiento,
-                                corrección de bugs, etc.___
-                                Pero para el tema de código limpio, hacer testing te permite dividir tu aplicación de
+                            </p>
+                            <h2>Testing</h2>
+                            <p class="text-justify">
+                                <span class="font-italic">¿No haces test de tu código?</span>
+                                <span class="font-weight-bold">Entonces lo estás haciendo mal.</span>
+                                <br>Hay muchas razones para hacer testing de tu código:
+                                <span class="font-italic">Refactorización, mejora de rendimiento, corrección de bugs, etc.</span>
+                                Pero en el tema de código limpio, hacer testing te permite dividir tu aplicación de
                                 forma correcta, haciendo que las funciones/métodos cumplan con una sola función,
                                 te ayuda a desacoplar tus clases/estructuras de acoplamientos innecesarios, etc.
-
+                            </p>
+                            <p class="text-justify">
                                 Este punto final es un tema tabú para muchos desarrolladores debido a que se piensa que el testing
                                 consume mucho tiempo que podemos dedicar a desarrollar nuevas funcionalidades o corregir algunas otras,
                                 sin embargo, el probar tu código desde todos los ángulos posibles te ayuda a precisamente a ahorrar
                                 tiempo a futuro corrigiendo bugs o errores. Adicionalmente, te aseguras que el código que estás
                                 entregando es un producto de calidad, probado y listo para funcionar.
-                                ***
-                                ###Conclusión
+                            </p>
+                            <h2>Conclusión</h2>
+                            <p class="text-justify">
                                 Existen muchas buenas prácticas para mejorar tu rendimiento como desarrollador, entre ellas
                                 es usar un código limpio en tus proyectos para que puedas leerlo fácilmente y para que otros
                                 también lo puedan leer y entender. El aprender a escribir código con las mejores prácticas es
                                 el plus que le otorga a un desarrollador ser un buen desarrollador, ya que, no sólo el beneficio
                                 es para ti, sino que son prácticas que todo un equipo agradecerá.
-                                Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                porta. Quisque velit
-                                nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque
-                                nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                                cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                Nulla quis lorem ut libero malesuada feugiat.
                             </p>
-                            <p>
-                                Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Mauris blandit
-                                aliquet elit, eget tincidunt
-                                nibh pulvinar a. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Donec sollicitudin molestie malesuada.
-                            </p>
-                            <p>
-                                Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Praesent
-                                sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at
-                                sem. Donec rutrum congue leo eget malesuada.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat.
-                                Curabitur arcu erat,
-                                accumsan id imperdiet et, porttitor at sem. Vivamus suscipit tortor eget felis porttitor
-                                volutpat. Vivamus suscipit tortor eget felis porttitor volutpat. Quisque velit nisi, pretium
-                                ut lacinia in, elementum id enim.
-                            </p>
-                            <blockquote class="blockquote">
+                            <!--<blockquote class="blockquote">
                                 <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            </blockquote>
-                            <p>
-                                Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Mauris blandit
-                                aliquet elit, eget tincidunt
-                                nibh pulvinar a. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Donec sollicitudin molestie malesuada.
-                            </p>
+                            </blockquote>-->
+
                         </div>
                     </article>
                     <!--Comments-->

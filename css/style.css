@@ -1023,11 +1023,15 @@ pre code {
   white-space: nowrap;
 }
 
+code pre {
+  color: #f8f8f2;
+}
+
 pre {
   background-color: #272822;
   padding: 5px;
   border-radius: 0.3em;
-  margin: 0;
+  margin: 0 0 1rem;
 }
 
 /*------/ Comments /------*/
