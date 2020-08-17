@@ -219,7 +219,7 @@ a:hover {
 }
 
 /*------/ Ul resect /------*/
-.ul-resect, .widget-tags ul, .widget-sidebar .list-sidebar, .box-comments .list-comments, .blog-wrapper .post-meta ul, .list-ico, .socials ul {
+.ul-resect, .widget-tags ul, .widget-sidebar .list-sidebar, .box-comments .list-comments, .post-meta ul, .blog-wrapper .post-meta ul, .list-ico, .socials ul {
   list-style: none;
   padding-left: 0;
   margin-bottom: 0;
@@ -581,7 +581,6 @@ a:hover {
   margin-top: 30px;
 }
 .intro-single .intro-title {
-  text-transform: uppercase;
   font-size: 3rem;
 }
 @media (min-width: 768px) {
@@ -954,6 +953,10 @@ a:hover {
   }
 }
 
+.blog-title {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+}
+
 .blog-wrapper .article-title {
   font-size: 1.5rem;
 }
@@ -961,6 +964,16 @@ a:hover {
   .blog-wrapper .article-title {
     font-size: 1.9rem;
   }
+}
+.blog-wrapper .article-content h2 {
+  color: #23395B;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.5rem;
+  font-style: oblique;
+}
+.blog-wrapper address {
+  display: inline;
 }
 .blog-wrapper .post-meta {
   margin: 1rem 0;
@@ -983,6 +996,38 @@ a:hover {
   border-left: 4px solid #23395B;
   padding: 18px;
   font-style: italic;
+}
+
+.post-meta {
+  margin: 1rem 0;
+}
+.post-meta ul {
+  margin-top: 1rem;
+}
+.post-meta ul li {
+  display: inline-block;
+  margin-left: 15px;
+}
+.post-meta ul a {
+  color: #f5f5f5;
+}
+.post-meta ul span {
+  color: #f5f5f5;
+}
+
+pre code {
+  background-color: #272822;
+  color: #f8f8f2;
+  border-radius: 0.3rem;
+  padding: 4px 5px 5px;
+  white-space: nowrap;
+}
+
+pre {
+  background-color: #272822;
+  padding: 5px;
+  border-radius: 0.3em;
+  margin: 0;
 }
 
 /*------/ Comments /------*/
@@ -1106,6 +1151,10 @@ footer .credits {
 }
 footer .credits a {
   color: #fff;
+}
+
+.blog-footer {
+  padding-top: 2rem;
 }
 
 /*======================================

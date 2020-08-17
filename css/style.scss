@@ -1,21 +1,16 @@
 //== COLORS
-//$color-primary: #0078ff !default;
 $color-primary: #23395B !default;
-//$color-primary-light: #cde1f8 !default;
 $color-primary-light: #8EA8C3 !default;
-//$color-primary-dark: #0062d3 !default;
 $color-primary-dark: #161925 !default;
 
 $color-secondary: #f5f5f5 !default;
-//$color-secondary: #CBF7ED !default;
-//$color-secondary-dark: #676767 !default;
 $color-secondary-dark: #8EA8C3 !default;
 
-//$color-text-primary: #4e4e4e !default;
 $color-text-primary: #4e4e4e !default;
-//$color-text-secondary: #1e1e1e !default;
 $color-text-secondary: #1e1e1e !default;
 
+$color-code-background: #272822;
+$color-code-color: #f8f8f2;
 
 /*======================================
 //--//-->   STYLES GENERALES
@@ -654,7 +649,6 @@ a {
     }
 
     .intro-title {
-        text-transform: uppercase;
         font-size: 3rem;
 
         @media (min-width: 768px) {
@@ -1055,6 +1049,10 @@ a {
     }
 }
 
+.blog-title{
+    font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+}
+
 .blog-wrapper {
     .article-title {
         font-size: 1.5rem;
@@ -1062,6 +1060,20 @@ a {
         @media (min-width: 768px) {
             font-size: 1.9rem;
         }
+    }
+
+    .article-content{
+        h2{
+            color: $color-primary;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 0.5rem;
+            font-style: oblique;
+        }
+    }
+
+    address{
+        display: inline;
     }
 
     .post-meta {
@@ -1092,6 +1104,43 @@ a {
         padding: 18px;
         font-style: italic;
     }
+}
+
+.post-meta {
+    margin: 1rem 0;
+
+    ul {
+        margin-top: 1rem;
+        @extend .ul-resect;
+
+        li {
+            display: inline-block;
+            margin-left: 15px;
+        }
+
+        a {
+            color: $color-secondary;
+        }
+
+        span {
+            color: $color-secondary;
+        }
+    }
+}
+
+pre code {
+    background-color: $color-code-background;
+    color: $color-code-color;
+    border-radius: 0.3rem;
+    padding: 4px 5px 5px;
+    white-space: nowrap;
+}
+
+pre {
+    background-color: $color-code-background;
+    padding: 5px;
+    border-radius: 0.3em;
+    margin: 0;
 }
 
 /*------/ Comments /------*/
@@ -1250,6 +1299,10 @@ footer {
             color: #fff;
         }
     }
+}
+
+.blog-footer{
+    padding-top: 2rem;
 }
 
 /*======================================

@@ -1,4 +1,6 @@
 #Consejos para escribir código limpio
+Ejemplo:  
+public function burbleSort($numbers = array()) {
 Como desarrolladores escribimos código que ejecutan las máquinas y que leen las personas y,
 para desarrollar software de una manera ágil, poder mantener y escalar con el tiempo, 
 necesitamos seguir una serie de guías que nos permita entender lo que escribimos.
@@ -94,9 +96,7 @@ software. Pero en ocasiones las funciones (o métodos) se vuelven gigantes. Cuan
 revisando que hay cosas que deberían estar en otras funciones (o métodos) más pequeños que serán 
 llamados por tu función principal, en estos casos podrás utilizar el concepto de ___Single Responsability___.
 
-Ejemplo:  
 ```
-public function burbleSort($numbers = array()) {
     for ($i=1; $i < count($numbers); $i++) {
         for ($j=0; $j < count($numbers)-1; $j++) {
             if ($numbers[$i] > $numbers[$j]) {
