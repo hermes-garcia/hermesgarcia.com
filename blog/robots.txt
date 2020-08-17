@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://hermesgarcia.com/sitemap.xml

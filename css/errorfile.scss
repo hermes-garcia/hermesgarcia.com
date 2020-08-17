@@ -1,0 +1,93 @@
+//== COLORS
+//$color-primary: #0078ff !default;
+$color-primary: #23395B !default;
+//$color-primary-light: #cde1f8 !default;
+$color-primary-light: #8EA8C3 !default;
+//$color-primary-dark: #0062d3 !default;
+$color-primary-dark: #161925 !default;
+
+$color-secondary: #f5f5f5 !default;
+//$color-secondary: #CBF7ED !default;
+//$color-secondary-dark: #676767 !default;
+$color-secondary-dark: #8EA8C3 !default;
+
+//$color-text-primary: #4e4e4e !default;
+$color-text-primary: #4e4e4e !default;
+//$color-text-secondary: #1e1e1e !default;
+$color-text-secondary: #1e1e1e !default;
+
+
+/*======================================
+//--//-->   STYLES GENERALES
+======================================*/
+body {
+    background-color: $color-secondary;
+    color: $color-text-primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $color-text-secondary;
+}
+
+a {
+    color: $color-text-secondary;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+        color: $color-primary;
+        text-decoration: none;
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+.p-r {
+    position: relative;
+}
+
+.color-a {
+    color: $color-primary;
+}
+
+.color-d {
+    color: $color-secondary;
+}
+
+.color-text-a {
+    color: $color-text-primary;
+}
+
+.page-wrapper {
+    max-width: 95%;
+    margin: 0 auto;
+}
+.wrapper-page {
+    max-width: 80%;
+    margin: 5% auto 0;
+}
+.ex-page-content .text-error {
+    color: #252932;
+    font-size: 98px;
+    font-weight: 700;
+    line-height: 150px;
+}
+.ex-page-content .text-error i {
+    font-size: 90px;
+    padding: 0 5px;
+}
+.text-primary {
+    color: $color-primary;
+}
+.text-pink {
+    color: #fb6d9d;
+}
+.text-info {
+    color: $color-primary-light;
+}
+.text-muted {
+    color: $color-text-primary;
+}
