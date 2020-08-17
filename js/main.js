@@ -1,23 +1,26 @@
 (function ($) {
     "use strict";
-    let nav = $('nav');
-    let navHeight = nav.outerHeight();
+    let nav = $('nav'),
+        navHeight = nav.outerHeight(),
+        navbarExpendMd = $('.navbar-expand-md'),
+        preloader = $('#preloader'),
+        mainNav = $('#mainNav');
 
     $('.navbar-toggler').on('click', function() {
-        if( ! $('#mainNav').hasClass('navbar-reduce')) {
-            $('#mainNav').addClass('navbar-reduce');
+        if( ! mainNav.hasClass('navbar-reduce')) {
+            mainNav.addClass('navbar-reduce');
         }
     })
 
     $(window).on('load', function () {
-        if ($('#preloader').length) {
-            $('#preloader').delay(100).fadeOut('slow', function () {
+        if (preloader.length) {
+            preloader.delay(100).fadeOut('slow', function () {
                 $(this).remove();
             });
         }
         if(window.scrollY > 50){
-            $('.navbar-expand-md').addClass('navbar-reduce');
-            $('.navbar-expand-md').removeClass('navbar-trans');
+            navbarExpendMd.addClass('navbar-reduce');
+            navbarExpendMd.removeClass('navbar-trans');
         }
     });
 
@@ -33,20 +36,17 @@
         return false;
     });
 
-    /*--/ Star ScrollTop /--*/
     $('.scrolltop-mf').on("click", function () {
         $('html, body').animate({
             scrollTop: 0
         }, 1000);
     });
 
-    /*--/ Star Counter /--*/
     $('.counter').counterUp({
         delay: 15,
         time: 2000
     });
 
-    /*--/ Star Scrolling nav /--*/
     $('a.js-scroll[href*="#"]:not([href="#"])').on("click", function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
@@ -60,28 +60,25 @@
         }
     });
 
-    // Closes responsive menu when a scroll trigger link is clicked
     $('.js-scroll').on("click", function () {
         $('.navbar-collapse').collapse('hide');
     });
 
-    // Activate scrollspy to add active class to navbar items on scroll
     $('body').scrollspy({
         target: '#mainNav',
         offset: navHeight
     });
 
-    /*--/ Navbar Menu Reduce /--*/
     $(window).trigger('scroll');
     $(window).on('scroll', function () {
-        var pixels = 50;
-        var top = 1200;
+        let pixels = 50;
+        let top = 1200;
         if ($(window).scrollTop() > pixels) {
-            $('.navbar-expand-md').addClass('navbar-reduce');
-            $('.navbar-expand-md').removeClass('navbar-trans');
+            navbarExpendMd.addClass('navbar-reduce');
+            navbarExpendMd.removeClass('navbar-trans');
         } else {
-            $('.navbar-expand-md').addClass('navbar-trans');
-            $('.navbar-expand-md').removeClass('navbar-reduce');
+            navbarExpendMd.addClass('navbar-trans');
+            navbarExpendMd.removeClass('navbar-reduce');
         }
         if ($(window).scrollTop() > top) {
             $('.scrolltop-mf').fadeIn(1000, "easeInOutExpo");
@@ -101,13 +98,15 @@
         });
     }
 
-
-    const frontDate = $("#post-time").data("time").split("-");
-    const date = new Date(parseInt(frontDate[0]),parseInt(frontDate[1])-1,parseInt(frontDate[2]),20 );
-    setInterval(function(){
+    const postTime =  $("#post-time");
+    if(postTime.data("time") !== undefined){
+        const frontDate = postTime.data("time").split("-");
+        const date = new Date(parseInt(frontDate[0]),parseInt(frontDate[1])-1,parseInt(frontDate[2]),20 );
+        setInterval(function(){
+            $('.post-time').html(timeSince(date));
+        },3000);
         $('.post-time').html(timeSince(date));
-    },3000);
-    $('.post-time').html(timeSince(date));
+    }
 
     function timeSince(date) {
         const seconds = Math.floor((new Date() - date) / 1000);

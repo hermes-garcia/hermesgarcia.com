@@ -712,15 +712,15 @@ a:hover {
 }
 @media (min-width: 992px) {
   .service-box .service-content {
-    min-height: 220px;
+    min-height: 215px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .service-box .service-content {
     min-height: 200px;
   }
 }
-@media (min-width: 576px) {
+@media (min-width: 576px) and (max-width: 767px) {
   .service-box .service-content {
     min-height: 265px;
   }
@@ -996,6 +996,13 @@ a:hover {
   border-left: 4px solid #23395B;
   padding: 18px;
   font-style: italic;
+}
+.blog-wrapper .post-img {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.blog-wrapper .post-img img {
+  border-radius: 10%;
 }
 
 .post-meta {
