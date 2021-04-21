@@ -1448,3 +1448,37 @@ footer {
     line-height: 1.5;
     border-radius: .3rem;
 }
+
+label.hidden {
+    display: none;
+}
+
+//Vanilla js
+.projectjs {
+    .title {
+        text-align: center;
+        font-weight: 300;
+    }
+
+    .subtitle {
+        text-align: justify;
+    }
+
+    ul {
+        text-align: justify;
+        padding-top: 30px;
+        li{
+            &.item {
+                padding-bottom: 10px;
+
+                a.project-link {
+                    color: #e2c532;
+                }
+            }
+        }
+    }
+
+    a {
+        color: #5989e2;
+    }
+}

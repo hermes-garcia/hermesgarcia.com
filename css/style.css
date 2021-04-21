@@ -1293,4 +1293,29 @@ footer .credits a {
   border-radius: 0.3rem;
 }
 
+label.hidden {
+  display: none;
+}
+
+.projectjs .title {
+  text-align: center;
+  font-weight: 300;
+}
+.projectjs .subtitle {
+  text-align: justify;
+}
+.projectjs ul {
+  text-align: justify;
+  padding-top: 30px;
+}
+.projectjs ul li.item {
+  padding-bottom: 10px;
+}
+.projectjs ul li.item a.project-link {
+  color: #e2c532;
+}
+.projectjs a {
+  color: #5989e2;
+}
+
 /*# sourceMappingURL=style.css.map */
