@@ -5,24 +5,24 @@ deployment:
     - export DEPLOYPATH2=/home3/hermesgarcia/public_html/blog/
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp .htaccess $DEPLOYPATH
-    - /bin/cp page-400.html $DEPLOYPATH
-    - /bin/cp page-400.html $DEPLOYPATH2
-    - /bin/cp page-403.html $DEPLOYPATH
-    - /bin/cp page-403.html $DEPLOYPATH2
-    - /bin/cp page-404.html $DEPLOYPATH
-    - /bin/cp page-404.html $DEPLOYPATH2
-    - /bin/cp page-500.html $DEPLOYPATH
-    - /bin/cp page-500.html $DEPLOYPATH2
-    - /bin/cp page-503.html $DEPLOYPATH
-    - /bin/cp page-503.html $DEPLOYPATH2
     - /bin/cp sitemap.xml $DEPLOYPATH
     - /bin/cp robots.txt $DEPLOYPATH
+    - /bin/cp page-400.html $DEPLOYPATH
+    - /bin/cp page-403.html $DEPLOYPATH
+    - /bin/cp page-404.html $DEPLOYPATH
+    - /bin/cp page-500.html $DEPLOYPATH
+    - /bin/cp page-503.html $DEPLOYPATH
+    - /bin/cp page-400.html $DEPLOYPATH2
+    - /bin/cp page-403.html $DEPLOYPATH2
+    - /bin/cp page-404.html $DEPLOYPATH2
+    - /bin/cp page-500.html $DEPLOYPATH2
+    - /bin/cp page-503.html $DEPLOYPATH2
     - /bin/cp -R /home3/hermesgarcia/repositories/blog $DEPLOYPATH
     - /bin/cp -R /home3/hermesgarcia/repositories/contactform $DEPLOYPATH
     - /bin/cp -R /home3/hermesgarcia/repositories/css $DEPLOYPATH
-    - /bin/cp -R /home3/hermesgarcia/repositories/css $DEPLOYPATH2
     - /bin/cp -R /home3/hermesgarcia/repositories/img $DEPLOYPATH
     - /bin/cp -R /home3/hermesgarcia/repositories/js $DEPLOYPATH
-    - /bin/cp -R /home3/hermesgarcia/repositories/js $DEPLOYPATH2
     - /bin/cp -R /home3/hermesgarcia/repositories/lib $DEPLOYPATH
+    - /bin/cp -R /home3/hermesgarcia/repositories/css $DEPLOYPATH2
+    - /bin/cp -R /home3/hermesgarcia/repositories/js $DEPLOYPATH2
     - /bin/cp -R /home3/hermesgarcia/repositories/lib $DEPLOYPATH2
