@@ -11,7 +11,7 @@ jobs:
       - name: Copy files
         uses: appleboy/ssh-action@master
         env:
-          DEPLOYDIR: "/var/www/hermesgarcia.com/public_html"
+          DEPLOYPATH: "/var/www/hermesgarcia.com/public_html/"
         with:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
@@ -20,13 +20,14 @@ jobs:
             cd repositories/hermesgarcia.com
             git pull origin
             echo "Update repo"
-            cp *.html $DEPLOYDIR
-            cp robots.txt $DEPLOYDIR
-            cp sitemap.xml $DEPLOYDIR
-            cp .htaccess $DEPLOYDIR
-            cp -R blog/ $DEPLOYDIR
-            cp -R contactform/ $DEPLOYDIR
-            cp -R css/ $DEPLOYDIR
-            cp -R img/ $DEPLOYDIR
-            cp -R js/ $DEPLOYDIR
-            cp -R lib/ $DEPLOYDIR
+            echo "$DEPLOYPATH"
+            cp *.html $DEPLOYPATH
+            cp robots.txt $DEPLOYPATH
+            cp sitemap.xml $DEPLOYPATH
+            cp .htaccess $DEPLOYPATH
+            cp -R blog/ $DEPLOYPATH
+            cp -R contactform/ $DEPLOYPATH
+            cp -R css/ $DEPLOYPATH
+            cp -R img/ $DEPLOYPATH
+            cp -R js/ $DEPLOYPATH
+            cp -R lib/ $DEPLOYPATH
