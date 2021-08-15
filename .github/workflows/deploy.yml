@@ -18,3 +18,4 @@ jobs:
             cd repositories/hermesgarcia.com
             git pull origin
             echo "Update repo"
+            cp *.html /var/www/hermesgarcia.com/public_html
