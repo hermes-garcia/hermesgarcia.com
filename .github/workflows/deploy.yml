@@ -8,12 +8,13 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: Copy files
+        uses: appleboy/ssh-action@0.1.4
+        with:
+          host: ${{secrets.SSH_HOST}}
+          key: ${{secrets.SSH_KEY}}
+          username: ${{secrets.SSH_USERNAME}}
+          script: |
+            whoami
+            pwd
+            ls -al
