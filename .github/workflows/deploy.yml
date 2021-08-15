@@ -15,8 +15,6 @@ jobs:
           key: ${{secrets.SSH_KEY}}
           username: ${{secrets.SSH_USERNAME}}
           script: |
-            whoami
-            pwd
-            ls -al
-            touch prb2.txt
-            ls -al
+            cd repositories/hermesgarcia.com
+            git pull origin
+            echo "Update repo"
