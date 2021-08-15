@@ -1,3 +1,6 @@
+Options -Indexes
+Options +FollowSymLinks
+IndexIgnore *
 
 RewriteEngine on
 
