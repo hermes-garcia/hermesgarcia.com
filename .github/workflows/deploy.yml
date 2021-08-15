@@ -18,3 +18,5 @@ jobs:
             whoami
             pwd
             ls -al
+            touch prb2.txt
+            ls -al
