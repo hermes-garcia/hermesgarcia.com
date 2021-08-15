@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Copy files
         uses: appleboy/ssh-action@master
+        env:
+          DEPLOYDIR: "/var/www/hermesgarcia.com/public_html"
         with:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
@@ -18,4 +20,13 @@ jobs:
             cd repositories/hermesgarcia.com
             git pull origin
             echo "Update repo"
-            cp *.html /var/www/hermesgarcia.com/public_html
+            cp *.html $DEPLOYDIR
+            cp robots.txt $DEPLOYDIR
+            cp sitemap.xml $DEPLOYDIR
+            cp .htaccess $DEPLOYDIR
+            cp -R blog/ $DEPLOYDIR
+            cp -R contactform/ $DEPLOYDIR
+            cp -R css/ $DEPLOYDIR
+            cp -R img/ $DEPLOYDIR
+            cp -R js/ $DEPLOYDIR
+            cp -R lib/ $DEPLOYDIR
