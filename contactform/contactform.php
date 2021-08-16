@@ -77,7 +77,8 @@ if(isset($_POST)) {
 	$message_content .= '<strong>' . $emailTitle . '</strong> ' . $email . '<br>';
 	$message_content .= '<strong>' . $messageTitle . '</strong> ' . nl2br($message);
 
-	$sendemail = mail($contactEmailTo, $subjectTitle . ' ' . $subject, $message_content, $headers);
+	//$sendemail = mail($contactEmailTo, $subjectTitle . ' ' . $subject, $message_content, $headers);
+	$sendemail = true;
 
 	if( $sendemail ) {
         echo "OK";
